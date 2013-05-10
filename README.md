@@ -10,9 +10,9 @@
 
 3. compile program melalui `CMD` :
 
-		* masuk kedirectory 'Tugas Akhir Pemrograman 4\Program'
-		* lakukan perintah 'mvn clean package tomcat:run'
+		* masuk kedirectory : `Tugas Akhir Pemrograman 4\Program`
+		* lakukan perintah : `mvn clean package tomcat:run`
 
 4. Jika berhasil maka buka web browser pada komputer :
 
-		* pada url masukkan alamat 'localhost:8080/Program'
+		* pada url masukkan alamat : `localhost:8080/Program`
