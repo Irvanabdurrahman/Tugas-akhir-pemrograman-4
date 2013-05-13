@@ -30,8 +30,8 @@
       }
     </style>
 	
-    <!--<link href="<= request.getContextPath() >/css/bootstrap-responsive.css" rel="stylesheet">-->
-    <link rel="shortcut icon" href="logo.ico">
+    <!--<link href="<= request.getContextPath() >/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="icon" href="logo.ico">-->
   </head>
 
   <body>

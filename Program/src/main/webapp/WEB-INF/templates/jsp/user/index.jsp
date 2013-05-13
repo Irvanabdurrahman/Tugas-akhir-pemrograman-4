@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,12 +34,15 @@
 		</div>
 		<div class="signup"> 
 			<p style="font-size:17px;">New to Twitter? Sign up<hr>
-			<form class="form-inline" action="home.jsp">
-                <input name="fullname" class="span12" type="text" placeholder="Full name"/><p>
-                <p><input name="email" class="span12" type="text" placeholder="Email"/><p>
-				<p><input name="password" class="span12" type="password" placeholder="Password"/><p>
+			
+			<div class="form-inline" >
+			<spring:form modelAttribute="user" >
+				<spring:input path="username" placeholder="Username" class="span12"/><spring:errors path="username"/><p>
+                <p><spring:input path="nama" placeholder="Email" class="span12" /><spring:errors path="nama"/><p>
+				<p><spring:input path="password" placeholder="Password" class="span12" type="password" /><spring:errors path="password"/><p>
                 <p align="right"><input type="submit" class="btn btn-warning" value="Sign up for Twitter"/>
-			</form>
+			 </spring:form>  
+			</div>
 		</div>
 	</div>
     </div>
