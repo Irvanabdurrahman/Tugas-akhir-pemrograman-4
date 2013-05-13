@@ -652,7 +652,8 @@ a:focus {
 .signup{
 	border-radius:5px;
 	width:280px;
-	height:210px;
+	/* height:210px; */
+	height:auto;
 	background-color:RGBA(231,230,228,1);
 	margin-left:-40px;
 	margin-top:10px;

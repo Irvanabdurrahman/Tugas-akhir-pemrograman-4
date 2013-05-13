@@ -28,16 +28,15 @@
 		<div class="signin"> 
 			<form class="form-inline" action="home.jsp">
                 <input name="username" class="span12" type="text" placeholder="Username"/><p>
-                <p><input name="password" class="span8" type="password" placeholder="Password"/>
-                <input type="submit" class="btn btn-info" value="Sign in"/>
+                <p><input name="password" class="span9" type="password" placeholder="Password"/>
+                <input type="submit" class="btn btn-info" value="Log in"/>
 			</form>
 		</div>
 		<div class="signup"> 
 			<p style="font-size:17px;">New to Twitter? Sign up<hr>
-			
 			<div class="form-inline" >
 			<spring:form modelAttribute="user" >
-				<spring:input path="username" placeholder="Username" class="span12"/><spring:errors path="username"/><p>
+				<spring:input path="username" placeholder="Full name" class="span12"/><spring:errors path="username"/><p>
                 <p><spring:input path="nama" placeholder="Email" class="span12" /><spring:errors path="nama"/><p>
 				<p><spring:input path="password" placeholder="Password" class="span12" type="password" /><spring:errors path="password"/><p>
                 <p align="right"><input type="submit" class="btn btn-warning" value="Sign up for Twitter"/>

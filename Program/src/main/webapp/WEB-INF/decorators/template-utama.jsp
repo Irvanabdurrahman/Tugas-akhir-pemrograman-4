@@ -55,13 +55,13 @@
 					<li><a href="#">Profile and Username</a></li>
 					<li class="divider"></li>
 					<li><a href="#"><i class="icon-wrench"></i> Setting</a></li>
-					<li><a href="index.jsp"><i class="icon-remove-sign"></i> Sign out</a></li>
+					<li><a href="index.jsp"><i class="icon-remove-sign"></i> Log Out</a></li>
     </ul>
   </li>
 </ul></div>
             <ul class="nav">
-              <li class="active"><a href="home.jsp"><i class="icon-home" ></i> Home</a></li>
-              <li><a href="me.jsp"><i class="icon-user" ></i> Me</a></li>
+              <li class="active"><a href="<%= request.getContextPath() %>/aplikasi/user/home"><i class="icon-home" ></i> Home</a></li>
+              <li><a href="<%= request.getContextPath() %>/aplikasi/user/me"><i class="icon-user" ></i> Me</a></li>
             </ul>            
           <a href="<%= request.getContextPath() %>/j_spring_security_logout" class="btn btn-navbar">Logout</a>
           </div>
