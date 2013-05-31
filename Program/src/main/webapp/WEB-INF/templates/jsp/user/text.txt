@@ -1,0 +1,54 @@
+<form method="POST">
+							<label><strong>Full name</strong></label><input name="nama" class="span6" type="text" placeholder="Full name"/></p>
+							<p><label><strong>Email address</strong></label><input name="email" class="span6" type="text" placeholder="Email"/></p> 
+							<p><label><strong>Create a password</strong></label><input name="password" class="span6" type="password" placeholder="Password"/></p>
+							<p><label><strong>Choose your username</strong></label><input name="username" class="span6" type="text" placeholder="Username"/></p>
+							<p><input type="submit" class="btn span6 btn-warning" value="Create my account"/>
+							</form>			
+							
+							
+							<spring:form modelAttribute="user">
+								<spring:input path="nama" placeholder="Full name" class="span6"/><spring:errors path="nama"/><p>
+								<p><spring:input path="email" placeholder="Email" class="span6" /><spring:errors path="email"/><p>
+								<p><spring:input path="password" placeholder="Password" class="span6" type="password" /><spring:errors path="password"/><p>
+								<p><spring:input path="username" placeholder="Username" class="span6" /><spring:errors path="username"/><p>
+								<p><input type="submit" class="btn span6 btn-warning" value="Create my account"/>
+								
+								<!--<p><spring:input path="email" placeholder="Email" class="span6" /><spring:errors path="email"/><p>-->
+			 </spring:form>				
+			 
+			 
+			 
+			 
+			 			<spring:form modelAttribute="user">
+			
+					<label><strong>Full name</strong></label><spring:input path="nama" placeholder="Full name" value="nama" class="span6"/><spring:errors path="nama"/></p>
+								<p><label><strong>Create a password</strong></label><spring:input path="password" placeholder="Password" class="span6" type="password" /><spring:errors path="password"/></p>
+								<p><label><strong>Choose your username</strong></label><spring:input path="username" placeholder="username" class="span6" value="$a{username}"/><spring:errors path="username"/></p>
+								<p><input type="submit" class="btn span6 btn-warning" value="Create my account"/>
+			 </spring:form>	
+			 
+			 <!---src="<= request.getContextPath() %>/img/1.jpg-->
+			 
+			 <tr>
+					<td><label><strong>Upload image</strong></label><input type="file" name="avatar" >
+					<img class="img-polaroid" height="140px" width="190px"  value="${u.avatar}">
+					</td>
+				</tr>
+				
+				<!--<table border="2" width="500px">
+						<tr>
+							<td rowspan="2"><img src="<%= request.getContextPath() %>/img/user/User.png" class="ava"></td>
+							<td>Irvan Abdurrahman @irvaen182</td>
+						</tr>                                          
+						<tr>
+							<td><p class="teks">${t.teks} </td><hr>
+						</tr>
+					</table>-->
+					
+					<div>Irvan Abdurrahman @irvaen182</div>
+					
+					<div class="span9">
+							${t.teks}
+					</div>
+					</div>

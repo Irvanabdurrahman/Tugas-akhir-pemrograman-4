@@ -1,4 +1,9 @@
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +35,45 @@
       }
     </style>
 	
-    <!--<link href="<= request.getContextPath() >/css/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="icon" href="logo.ico">-->
+	<!-- Jquery for tweet -->
+	<script src="<%= request.getContextPath() %>/js/jquery.min.js"></script>
+		<script> 
+			$(document).ready(function(){
+				$("#tmb").hide();
+				$("#flip").click(function(){
+				$("#tmb").show();
+					$("#flip").height(100);
+				});
+			});
+		</script>
+		
+		<style type="text/css"> 
+			#flip {
+				resize: none;
+			}
+		</style>
+		
+		
+		<!-- Jquery for reply -->
+		<script>
+			$(document).ready(function(){
+				$("#comment").hide();
+				$("#tmbl").hide();
+				$("#line").hide();
+				$("#show").click(function(){
+					$("#comment").toggle();
+					$("#tmbl").toggle();
+					$("#line").toggle();
+				});
+				$("#comment").click(function(){
+					$("#comment").height(100);
+				});
+			});
+			</script>
+	
+	
+    <!--<link href="<= request.getContextPath() >/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <link rel="icon" href="<%= request.getContextPath() %>/img/icon.ico">
   </head>
 
   <body>
@@ -52,39 +94,43 @@
 							<b class="caret"></b>
 					</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Profile and Username</a></li>
+					<li><a href="<%= request.getContextPath() %>/aplikasi/user/setting"><img src="<%= request.getContextPath() %>/img/user/User.png"  class="img-polaroid"> Profile and Username &nbsp;</a></li>
 					<li class="divider"></li>
-					<li><a href="#"><i class="icon-wrench"></i> Setting</a></li>
-					<li><a href="index.jsp"><i class="icon-remove-sign"></i> Log Out</a></li>
+					<li><a href="<%= request.getContextPath() %>/aplikasi/user/setting"><i class="icon-wrench"></i> Setting</a></li>
+					<li><a href="<%= request.getContextPath() %>/aplikasi/user/index"><i class="icon-remove-sign"></i> Log Out</a></li>
     </ul>
   </li>
 </ul></div>
             <ul class="nav">
               <li class="active"><a href="<%= request.getContextPath() %>/aplikasi/user/home"><i class="icon-home" ></i> Home</a></li>
-              <li><a href="<%= request.getContextPath() %>/aplikasi/user/me"><i class="icon-user" ></i> Me</a></li>
+			  <li><a href="<%= request.getContextPath() %>/aplikasi/user/connect"><i class="icon-globe" ></i> Connect</a></li>
+              <li><a href="<%= request.getContextPath() %>/aplikasi/user/me"><i class="icon-user" ></i> Me</a>
+			  </li>
             </ul>            
-          <a href="<%= request.getContextPath() %>/j_spring_security_logout" class="btn btn-navbar">Logout</a>
           </div>
         </div>
       </div>
     </div>
 	
-	<!-- Modal -->
+	<!-- Modal for tweet -->
 		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="myModalLabel">What's happening?</h3>
-  </div>
-  <div class="modal-body">
-    
-		<textarea rows="4" name="tweet" class="span7"></textarea>
-   
-  </div>
-  <div class="modal-footer">
-	<input type="file">
-   <button class="btn btn-info">Tweet</button>
-  </div>
-</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 id="myModalLabel">What's happening?</h3>
+			</div>
+			<spring:form modelAttribute="user">
+			<div class="modal-body">
+				<table>
+						<textarea rows="4" name="teks" class="span7" style="resize: none;"></textarea>
+						
+				</table>
+			</div>
+			<div class="modal-footer">
+				<input type="file">
+				<input type="submit" class="btn btn-info" value="Tweet"/>
+			</div>
+		</spring:form>
+		</div>
 
    
      <!--  <div class="row-fluid">

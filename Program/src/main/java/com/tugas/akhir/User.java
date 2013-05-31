@@ -10,17 +10,23 @@ public class User{
 	
 	@NotNull
 	@NotEmpty
-	@Size(min=1, max=15)
+	@Size(min=3, max=15)
 	private String username;
 	
 	@NotNull @NotEmpty
-	@Size(min=3, max=255)
+	@Size(min=3, max=50)
 	private String nama;
 	
 	@NotNull @NotEmpty
 	private String password;
 	
-	 public Integer getId() {
+	@NotNull @NotEmpty
+	private String email;
+	
+	private String avatar;
+	/* private String background; */
+	
+	public Integer getId() {
         return id;
     }
 
@@ -51,6 +57,33 @@ public class User{
 	
 	public void setPassword(String password){
 		this.password=password;
+	}	
+	
+	public String getEmail(){
+		return email;
 	}
-
+	
+	public void setEmail(String email){
+		this.email=email;
+	}
+	
+	
+	
+	 public String getAvatar(){
+		return avatar;
+	}
+	
+	public void setAvatar(String avatar){
+		this.avatar=avatar;
+	}
+	
+	
+	/*public String getBackground(){
+		return background;
+	}
+	
+	public void setBackground(String background){
+		this.background=background;
+	}
+ */
 }

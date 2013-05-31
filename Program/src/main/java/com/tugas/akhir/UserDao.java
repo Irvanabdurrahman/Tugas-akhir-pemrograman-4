@@ -15,9 +15,8 @@ public class UserDao{
 
 	@Autowired private DataSource dataSource;
 	
-	private String sqlInsert = "insert into test (username, nama, password) " + "values (?,?,?)";
-    private String sqlUpdate = "update test set username=?, nama=?, password=?" + "where id = ?"; 
-	/* private String sqlUpdate = "update test set username=?, nama=?, password=?" + "where username = ?"; */
+	private String sqlInsert = "insert into test (username, nama, password, email, avatar) " + "values (?,?,?,?,?)";
+    private String sqlUpdate = "update test set username=?, nama=?, password=?, email=?" + "where id = ?"; 
     private String sqlCariSemuaUser = "select * from test order by username";
 	private String sqlCariById = "select * from test where id=?";
 	private String sqlHapusById = "delete from test where id = ?"; 
@@ -33,6 +32,8 @@ public class UserDao{
             psInsert.setString(1, u.getUsername());
             psInsert.setString(2, u.getNama());
             psInsert.setString(3, u.getPassword());
+            psInsert.setString(4, u.getEmail());
+            psInsert.setString(5, u.getAvatar());
 
             psInsert.executeUpdate();
         } else {
@@ -40,7 +41,9 @@ public class UserDao{
          	psUpdate.setString(1, u.getUsername());
             psUpdate.setString(2, u.getNama());
             psUpdate.setString(3, u.getPassword());
-            psUpdate.setString(4, u.getUsername());
+			psUpdate.setString(4, u.getEmail());
+			psUpdate.setString(5, u.getAvatar());
+            psUpdate.setInt(6, u.getId());
 			
             psUpdate.executeUpdate();
         }
@@ -69,15 +72,15 @@ public class UserDao{
 		c.close();
     } */
 	
-	 public List<User> cariSemuaProduk() throws Exception {
+	public List<User> cariSemuaUser() throws Exception {
         List<User> hasil = new ArrayList<User>();
 		
 		Connection c = dataSource.getConnection();
-		PreparedStatement psCariSemuaProduk = c.prepareStatement(sqlCariSemuaUser);
+		PreparedStatement psCariSemuaUser = c.prepareStatement(sqlCariSemuaUser);
 		
-        ResultSet rs = psCariSemuaProduk.executeQuery();
+        ResultSet rs = psCariSemuaUser.executeQuery();
         while(rs.next()){
-			User u = konversiResultSetKeProduk(rs);
+			User u = hasilUser(rs);
 			hasil.add(u);
 		}
 		c.close();
@@ -95,7 +98,7 @@ public class UserDao{
 			if(!rs.next()){
 				return null;
 			}
-			User u = konversiResultSetKeProduk(rs);
+			User u = hasilUser(rs);
 			c.close();
 			return u;
 		} 
@@ -116,12 +119,14 @@ public class UserDao{
 			return p;
 		} */
 	
-private User konversiResultSetKeProduk(ResultSet rs) throws SQLException{
+private User hasilUser(ResultSet rs) throws SQLException{
 		    User u = new User();
 			u.setId(rs.getInt("id"));
             u.setUsername(rs.getString("username"));
             u.setNama(rs.getString("nama"));
             u.setPassword(rs.getString("password"));
+			u.setEmail(rs.getString("email"));
+			u.setAvatar(rs.getString("avatar"));
             return u;
 		}
 		

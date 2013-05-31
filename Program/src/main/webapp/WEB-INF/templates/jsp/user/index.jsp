@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+	
     <body>
 		<div class="panel">
 			<div class="row-fluid">
@@ -26,7 +27,7 @@
 						</div>
 	<div class="span4"> 
 		<div class="signin"> 
-			<form class="form-inline" action="home.jsp">
+			<form class="form-inline" action="<%= request.getContextPath() %>/aplikasi/user/home">
                 <input name="username" class="span12" type="text" placeholder="Username"/><p>
                 <p><input name="password" class="span9" type="password" placeholder="Password"/>
                 <input type="submit" class="btn btn-info" value="Log in"/>
@@ -36,18 +37,18 @@
 			<p style="font-size:17px;">New to Twitter? Sign up<hr>
 			<div class="form-inline" >
 			<spring:form modelAttribute="user" >
-				<spring:input path="username" placeholder="Full name" class="span12"/><spring:errors path="username"/><p>
-                <p><spring:input path="nama" placeholder="Email" class="span12" /><spring:errors path="nama"/><p>
+					<spring:input path="nama" placeholder="Full name" class="span12"/><spring:errors path="username"/></p>	
+                <p><spring:input path="email" placeholder="Email" class="span12" /><spring:errors path="nama"/><p>
 				<p><spring:input path="password" placeholder="Password" class="span12" type="password" /><spring:errors path="password"/><p>
                 <p align="right"><input type="submit" class="btn btn-warning" value="Sign up for Twitter"/>
-			 </spring:form>  
+			 </spring:form>
 			</div>
 		</div>
 	</div>
     </div>
   </div>
 </div>
-          <div class="span12"><div class="ftr">Copyright &copy;  2013 by Sukma Wijaya and Irvan Abdurrahman</div></div> 
+         <!-- <div class="span12"><div class="ftr">Copyright &copy;  2013 by Sukma Wijaya and Irvan Abdurrahman</div></div> -->
       </div>        
     </body>
 </html>
