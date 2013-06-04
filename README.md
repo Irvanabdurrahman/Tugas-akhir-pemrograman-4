@@ -1,4 +1,4 @@
-# Sosial Media Feelings #
+# Sosial Media Twitter #
 
 * Kelompok :
 	* Sukma Wijaya - 4510210001
